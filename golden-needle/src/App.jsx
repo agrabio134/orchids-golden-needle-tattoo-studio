@@ -222,7 +222,7 @@ export default function App() {
       <nav className={`navbar${solid ? ' solid' : ''}`}>
         <div className="nav-container">
           <a href="#home" style={{ display:'flex', alignItems:'center', gap:12, textDecoration:'none' }}>
-            <img src="/images/logo.png" alt="Golden Needle" style={{ width:48, height:48, objectFit:'contain', mixBlendMode:'screen', flexShrink:0 }} />
+            <img src="/images/logo.png" alt="Golden Needle" style={{ width:48, height:48, objectFit:'contain', flexShrink:0 }} />
             <div>
               <p className="f-cin" style={{ color:'#BF9B30', fontSize:'0.9rem', letterSpacing:'0.1em', lineHeight:1.1 }}>Golden Needle</p>
               <p className="f-int" style={{ color:'#3a3a3a', fontSize:'0.48rem', letterSpacing:'0.3em', textTransform:'uppercase', marginTop:2 }}>Tattoo Studio · Subic Bay</p>
@@ -267,27 +267,25 @@ export default function App() {
         )}
       </nav>
 
-      {/* ═══ HERO — split layout ═══ */}
-      <section id="home" style={{ minHeight:'100vh', display:'grid', gridTemplateColumns:'1fr 1fr', position:'relative', overflow:'hidden', background:'#060606' }} className="hero-split">
+      {/* ═══ HERO ═══ */}
+      {/* Desktop: grid split. Mobile: single col, image is absolute bg behind text */}
+      <section id="home" className="hero-section" style={{ position:'relative', overflow:'hidden', background:'#060606' }}>
 
-        {/* LEFT — photo */}
-        <div style={{ position:'relative', overflow:'hidden' }}>
+        {/* Background image — absolute on mobile, normal grid child on desktop */}
+        <div className="hero-img-col">
           <img src="/images/work7.png" alt="Full back tattoo by Joey Agrabio"
-            style={{ width:'100%', height:'100%', objectFit:'cover', objectPosition:'center top', filter:'brightness(0.7) saturate(0.85)', display:'block' }} />
-          {/* Right-side fade */}
+            style={{ width:'100%', height:'100%', objectFit:'cover', objectPosition:'center top', display:'block' }} />
           <div style={{ position:'absolute', inset:0, background:'linear-gradient(to right, transparent 55%, #060606 100%)' }} />
-          {/* Bottom fade */}
           <div style={{ position:'absolute', inset:0, background:'linear-gradient(to top, #060606 0%, transparent 30%)' }} />
-          {/* Subtle top fade */}
           <div style={{ position:'absolute', inset:0, background:'linear-gradient(to bottom, rgba(6,6,6,0.55) 0%, transparent 20%)' }} />
         </div>
 
-        {/* RIGHT — text */}
-        <div style={{ display:'flex', flexDirection:'column', justifyContent:'center', padding:'120px 72px 80px 52px', position:'relative', zIndex:2 }}>
+        {/* Text column */}
+        <div className="hero-text-col" style={{ display:'flex', flexDirection:'column', justifyContent:'center', position:'relative', zIndex:2 }}>
           {/* Logo — displayed on a matching dark bg, no blend tricks needed */}
           <div style={{ marginBottom:36 }}>
             <img src="/images/logo.png" alt="Golden Needle"
-              style={{ width:120, height:120, objectFit:'contain', mixBlendMode:'screen', display:'block' }} />
+              style={{ width:120, height:120, objectFit:'contain', display:'block' }} />
           </div>
 
           <p className="overline" style={{ marginBottom:20 }}>Subic Bay, Philippines</p>
@@ -302,15 +300,15 @@ export default function App() {
             Tattoo Studio
           </p>
 
-          <Rule left />
+          <div className="hero-rule-wrap"><Rule left /></div>
 
-          <p className="f-int"
+          <p className="f-int hero-desc"
             style={{ color:'#777', fontSize:'clamp(0.86rem,1.4vw,0.97rem)', lineHeight:1.95, maxWidth:440, marginBottom:40, fontWeight:300 }}>
             Under the mastery of <strong style={{ color:'#BF9B30', fontWeight:500 }}>Joey Agrabio</strong> —
             a pioneer with <strong style={{ color:'#BF9B30', fontWeight:500 }}>over 30 years of artistry</strong> and a dedicated team committed to ink that lasts a lifetime.
           </p>
 
-          <div style={{ display:'flex', gap:12, flexWrap:'wrap' }}>
+          <div className="hero-btn-row" style={{ display:'flex', gap:12, flexWrap:'wrap' }}>
             <a href="https://wa.me/639186539106" target="_blank" rel="noopener noreferrer" className="btn-gold">
               Book a Session <IcoArrow s={13} />
             </a>
@@ -585,7 +583,7 @@ export default function App() {
           <div style={{ display:'flex',flexWrap:'wrap',gap:48,justifyContent:'space-between',marginBottom:44 }}>
             <div style={{ maxWidth:250 }}>
               <div style={{ display:'flex',alignItems:'center',gap:12,marginBottom:16 }}>
-                <img src="/images/logo.png" alt="Logo" style={{ width:40,height:40,objectFit:'contain', mixBlendMode:'screen' }}/>
+                <img src="/images/logo.png" alt="Logo" style={{ width:40,height:40,objectFit:'contain' }}/>
                 <div>
                   <p className="f-cin" style={{ color:'#BF9B30',fontSize:'0.88rem',letterSpacing:'0.1em' }}>Golden Needle</p>
                   <p style={{ color:'#2e2e2e',fontSize:'0.48rem',letterSpacing:'0.28em',textTransform:'uppercase',marginTop:2 }}>Tattoo Studio</p>
