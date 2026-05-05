@@ -1,0 +1,7 @@
+{
+  "startupCommands": [
+    "cd golden-needle && npm install; npm run dev -- --port 3000 --host"
+  ],
+  "projectId": "c116f05f-2b0d-4ed5-a44c-9c4e10e048ec",
+  "templateId": "any"
+}
